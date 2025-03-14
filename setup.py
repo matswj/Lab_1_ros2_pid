@@ -5,7 +5,7 @@ package_name = 'pid_controller'
 setup(
     name=package_name,
     version='0.0.0',
-    packages=find_packages(exclude=['test']),
+    packages=find_packages(include=[package_name]),
     data_files=[
         ('share/ament_index/resource_index/packages',
             ['resource/' + package_name]),
@@ -15,11 +15,12 @@ setup(
     zip_safe=True,
     maintainer='matsjen',
     maintainer_email='matsjen@todo.todo',
-    description='TODO: Package description',
-    license='TODO: License declaration',
+    description='ROS2 PID Controller Node',
+    license='MIT',
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
+            'pid_controller_node = pid_controller.pid_controller_node:main',
         ],
     },
 )
